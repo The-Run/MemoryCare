@@ -1,0 +1,151 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Segoe UI', system-ui, -apple-system, 'Helvetica Neue', Arial, sans-serif;
+
+  /* Deep navy primary */
+  --color-navy-50: #eef2f7;
+  --color-navy-100: #d6e0ec;
+  --color-navy-200: #aec1d9;
+  --color-navy-300: #7f9dbe;
+  --color-navy-400: #4d729a;
+  --color-navy-500: #2c4f77;
+  --color-navy-600: #1c3a5e;
+  --color-navy-700: #142c48;
+  --color-navy-800: #0e2038;
+  --color-navy-900: #091628;
+
+  /* Soft pastel accents */
+  --color-mint-100: #e2f4ea;
+  --color-mint-300: #a9dcc0;
+  --color-mint-600: #2f6f4f;
+
+  --color-amber-100: #fdecc8;
+  --color-amber-300: #f3cd80;
+  --color-amber-600: #b5762e;
+
+  --color-coral-100: #fbe1de;
+  --color-coral-300: #f0a9a1;
+  --color-coral-600: #b5432e;
+
+  --color-sky-100: #dceaf7;
+  --color-sky-300: #9dc4e8;
+  --color-sky-600: #2c5f8f;
+
+  --color-lilac-100: #f3e1f0;
+  --color-lilac-300: #d9a8d1;
+  --color-lilac-600: #8b3a62;
+
+  /* Stage colors */
+  --color-stage-early: #2f8f5b;
+  --color-stage-early-bg: #e4f5eb;
+  --color-stage-moderate: #c07d14;
+  --color-stage-moderate-bg: #fbf0dd;
+  --color-stage-advanced: #c0432e;
+  --color-stage-advanced-bg: #fbe6e2;
+
+  /* Alert severities */
+  --color-alert-green: #2f8f5b;
+  --color-alert-green-bg: #e4f5eb;
+  --color-alert-yellow: #c07d14;
+  --color-alert-yellow-bg: #fbf0dd;
+  --color-alert-red: #c0432e;
+  --color-alert-red-bg: #fbe6e2;
+}
+
+:root {
+  color-scheme: light;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: #f5f7fa;
+  color: var(--color-navy-800);
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--color-navy-200);
+}
+
+button {
+  font-family: inherit;
+}
+
+/*
+ * Tailwind v4 removed the `cursor: pointer` default on buttons, which makes
+ * every control in the app feel unclickable. Restore it app-wide.
+ */
+button,
+[role='button'],
+a[href],
+label,
+select,
+summary {
+  cursor: pointer;
+}
+
+button:disabled,
+[role='button'][aria-disabled='true'] {
+  cursor: not-allowed;
+}
+
+/* Inputs keep a text caret, not a pointer. */
+input:not([type='checkbox']):not([type='radio']):not([type='button']),
+textarea {
+  cursor: auto;
+}
+
+/* Utility: card shadow used across the caregiver UI */
+.card-shadow {
+  box-shadow: 0 1px 2px rgba(9, 22, 40, 0.04), 0 4px 16px rgba(9, 22, 40, 0.06);
+}
+
+/* Shared form control styling (used by guided wizards across the app) */
+.input {
+  width: 100%;
+  border-radius: 0.75rem;
+  border: 1px solid var(--color-navy-200);
+  padding: 0.55rem 0.75rem;
+  font-size: 0.875rem;
+  outline: none;
+  background: white;
+}
+.input:focus {
+  border-color: var(--color-navy-500);
+}
+
+.chip {
+  border-radius: 9999px;
+  border: 1px solid var(--color-navy-200);
+  padding: 0.4rem 0.9rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--color-navy-600);
+  background: white;
+}
+.chip-active {
+  border-color: var(--color-navy-600);
+  background: var(--color-navy-600);
+  color: white;
+}
+
+/* Large-target, high-contrast styling reused across Patient Mode screens */
+.patient-target {
+  min-height: 88px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}
